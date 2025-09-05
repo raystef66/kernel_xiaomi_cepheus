@@ -91,7 +91,7 @@ int f2fs_init_casefolded_name(const struct inode *dir,
 		if ((int)fname->cf_name.len <= 0) {
 			kfree(fname->cf_name.name);
 			fname->cf_name.name = NULL;
-			if (sb_has_strict_encoding(sb))
+			if (sb_has_enc_strict_mode(sb))
 				return -EINVAL;
 			/* fall back to treating name as opaque byte sequence */
 		}
