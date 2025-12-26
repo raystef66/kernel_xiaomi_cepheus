@@ -612,7 +612,7 @@ def parse_dt_entries(global_args, arg_list):
         raise ValueError('Input DT images must be provided')
 
     total_images = len(img_file_idx)
-    for idx in xrange(total_images):
+    for idx in range(total_images):
         start_idx = img_file_idx[idx]
         if idx == total_images - 1:
             argv = arg_list[start_idx:]
