@@ -244,7 +244,7 @@ class Dtbo(object):
         Tree table entries and update the DTBO header.
         """
 
-        self.__metadata = array('c', ' ' * self.__metadata_size)
+        self.__metadata = bytearray(b' ' * self.__metadata_size)
         metadata_offset = self.header_size
         for dt_entry in self.__dt_entries:
             self._update_dt_entry_header(dt_entry, metadata_offset)
