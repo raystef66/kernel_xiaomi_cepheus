@@ -290,7 +290,7 @@ class Dtbo(object):
         if self.__dt_entries:
             raise ValueError('DTBO DT entries can be added only once')
 
-        offset = self.dt_entries_offset / 4
+        offset = self.dt_entries_offset // 4
         params = {}
         params['dt_file'] = None
         for i in range(0, self.dt_entry_count):
@@ -465,7 +465,7 @@ class Dtbo(object):
         dt_offset = (self.header_size +
                      dt_entry_count * self.dt_entry_size)
 
-        dt_entry_buf = ""
+        dt_entry_buf = b""
         for dt_entry in dt_entries:
             if not isinstance(dt_entry, DtEntry):
                 raise ValueError('Adding invalid DT entry object to DTBO')
