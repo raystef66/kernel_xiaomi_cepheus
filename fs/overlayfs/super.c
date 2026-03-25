@@ -282,7 +282,7 @@ static int ovl_statfs(struct dentry *dentry, struct kstatfs *buf)
 	struct path path;
 	int err;
 
-#ifdef CONFIG_KSU_SUSFS_SUS_OVERLAYFS
+
 	ovl_path_lowerdata(root_dentry, &path);
 	if (likely(path.mnt && path.dentry)) {
 		err = vfs_statfs(&path, buf);
@@ -292,7 +292,6 @@ static int ovl_statfs(struct dentry *dentry, struct kstatfs *buf)
 		}
 		return err;
 	}
-#endif
 
 	ovl_path_real(root_dentry, &path);
 
